@@ -1,3 +1,4 @@
+
 exports.seed = function(knex, Promise) {
   return knex('steps').insert([
     { id: 1, step_number: 1, recipe_id: 1, instructions: 'Take two slices of bread' },
