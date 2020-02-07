@@ -7,8 +7,10 @@ exports.up = function(knex) {
     }))
     .createTable('steps', step => {
         step.increments();
-        step.integer('step_number').unsigned().references('recipe_id');
+        step.integer('step_number').notNullable().unsigned().references('recipe_id');
         step.text('instructions', 256);
+        step.onDelete('CASCADE')
+        step.onUpdate('CASCADE');
     })
     .createTable('ingredients', ingredient => {
         ingredient.increments();
